@@ -11,4 +11,4 @@ COPY . $APP_HOME
 
 RUN chown -R www-data:www-data $APP_HOME
 
-CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+EXPOSE 80

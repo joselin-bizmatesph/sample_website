@@ -2,6 +2,8 @@ version: "2"
 services:
   sample_website:
     build: .
+    container_name: sample_website
+    hostname: sample_website
     ports:
       - "80:80"
     volumes:
