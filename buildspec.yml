@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 448939800571.dkr.ecr.ap-southeast-1.amazonaws.com
+  build:
+    commands:
+      - docker build -t sample_website .
+      - docker tag sample_website:latest 448939800571.dkr.ecr.ap-southeast-1.amazonaws.com/sample_website:latest
+  post_build:
+    commands:
+      - docker push 448939800571.dkr.ecr.ap-southeast-1.amazonaws.com/sample_website:latest
+artifacts:
+  files: imagedefinitions.json
