@@ -1,0 +1,9 @@
+version: "2"
+services:
+  sample_website:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html/
+    restart: unless-stopped
